@@ -2,10 +2,7 @@ class Person
   attr_reader :id
   attr_accessor :name, :age
 
-  @@counter = 0
-
-  def initialize(age, name = 'unknown', parent_permission = true)
-    @@counter += 1
+  def initialize(age, name = 'unknown', parent_permission: true)
     @id = @@counter
     @name = name
     @age = age
@@ -24,5 +21,3 @@ class Person
     @age >= 18 || @parent_permission
   end
 end
-
-daniel = Person.new(16, "daniel", "false")
