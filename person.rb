@@ -5,6 +5,7 @@ class Person < Nameable
   attr_accessor :name, :age
 
   def initialize(age, name = 'unknown', parent_permission: true)
+    super()
     @id = @@counter
     @name = name
     @age = age
@@ -16,7 +17,7 @@ class Person < Nameable
   end
 
   def correct_name
-    return @name
+    @name
   end
 
   private
