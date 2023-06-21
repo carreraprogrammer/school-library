@@ -51,13 +51,6 @@ Ruby: To create and manipulate the classes
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-## 🚀 Live Demo <a name="live-demo"></a>
-
-- [Live Demo Link](https://yourdeployedapplicationlink.com)
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
 ## 💻 Getting Started <a name="getting-started"></a>
 
 
@@ -142,7 +135,7 @@ If you like this project, I'd really appreciate if you can give me a star.
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
 
-I would like to thank
+I would like to thank to my family, my coding partners and Microverse, that are always pushing me to became my best version
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
