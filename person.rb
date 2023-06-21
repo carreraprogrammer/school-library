@@ -1,16 +1,15 @@
 class Person
-  attr_accessor :name, :age
   attr_reader :id
+  attr_accessor :name, :age
 
-  def initialize(id, name = "Unknown", age, parent_permission = true)
-    @id = id
+  @@counter = 0
+
+  def initialize(age, name = 'unknown', parent_permission = true)
+    @@counter += 1
+    @id = @@counter
     @name = name
     @age = age
     @parent_permission = parent_permission
-  end
-
-  def can_use_services?
-    @age >= 18 || @parent_permission
   end
 
   private
@@ -18,4 +17,12 @@ class Person
   def of_age?
     @age >= 18
   end
+
+  public
+
+  def can_use_services?
+    @age >= 18 || @parent_permission
+  end
 end
+
+daniel = Person.new(16, "daniel", "false")
