@@ -1,29 +1,38 @@
-def main
-    puts
-    puts "Welcome to school library app"
-    puts
-    puts "Please choose an option by entering a number:"
-    puts
-    puts "1 - List all books"
+require_relative "./app"
+
+class Options
+  def initialize
+    @app = App.new(self)
+    puts "\n~~ Welcome to school library app ~~\n"
+    show_menu
+  end
+
+  def show_menu
+    puts "\nPlease choose an option by entering a number:"
+    puts "\n1 - List all books"
     puts "2 - List all people"
     puts "3 - Create a person"
     puts "4 - Create a book"
     puts "5 - Create a rental"
     puts "6 - List all rentals for a given person id"
-    puts "7 - Exit"
-    puts
-    
-    response = gets.chomp.to_i
-    
-    if response <= 7
-      puts "You chose the #{response} option"
-    else
-      puts
-      puts "~~ Please, insert a valid number ~~"
+    puts "7 - Exit\n"
+    user_response = gets.chomp.to_i
+    if user_response < 7
+      @app.select_option(user_response)
+    elsif user_response == 7
+      puts "\n~~ Thanks for use school library app ~~\n"
       sleep(1)
-      main
+    else
+      puts "\n~~ Please, insert a valid number ~~\n"
+      puts
+      sleep(1)
+      show_menu
     end
   end
-  
-  main
-  
+end
+
+def main
+  Options.new
+end
+
+main
