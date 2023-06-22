@@ -1,7 +1,7 @@
-require './nameable'
-require './capitalize_decorator'
-require './trimmer_decorator'
-require './rental'
+require 'nameable'
+require 'capitalize_decorator'
+require 'trimmer_decorator'
+require 'rental'
 
 class Person < Nameable
   attr_reader :id
