@@ -1,4 +1,4 @@
-require_relative  './decorator'
+require_relative './decorator'
 
 class TrimmerDecorator < Decorator
   attr_accessor :nameable_obj
