@@ -18,7 +18,7 @@ class RentalOptions
     list_all_people
     selected_person = gets.chomp.to_i
 
-    print 'Date: '
+    print 'Date(YYYY-MM-DD): '
     date = gets.chomp
 
     create_rental(selected_book, selected_person, date)
