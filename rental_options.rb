@@ -53,6 +53,7 @@ class RentalOptions
       end
       counter_people += 1
     end
+    end
   end
 
   def create_rental(book_index, person_index, date)
@@ -62,3 +63,4 @@ class RentalOptions
     puts 'Rental created successfully'
   end
 end
+
