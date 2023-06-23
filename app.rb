@@ -14,6 +14,15 @@ class App
       @book_options.list_all_books
     when 2
       @person_options.list_all_people
+    when 3
+      puts
+      print "Do you want to create a student (1) or a teacher (2) ? [Input the number]: "
+      select_person = gets.chomp.to_i
+      if select_person == 1
+        @person_options.create_a_student
+      elsif select_person == 2
+        puts "You are creating a teacher"
+      end
     when 4
       puts ''
       print 'Title: '
