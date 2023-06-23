@@ -1,4 +1,3 @@
-
 class PersonOptions
   def initialize
     @people = []
@@ -18,5 +17,4 @@ class PersonOptions
       end
     end
   end
-
 end
