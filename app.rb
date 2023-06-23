@@ -1,11 +1,13 @@
 require_relative 'book_options'
 require_relative 'person_options'
+require_relative 'rental_options'
 
 class App
   def initialize(options)
     @options = options
     @book_options = BookOptions.new
     @person_options = PersonOptions.new
+    @rental_options = RentalOptions.new(@book_options, @person_options)
   end
 
   def select_option(user_response)
@@ -16,11 +18,12 @@ class App
       @person_options.list_all_people
     when 3
       puts
-      print "Do you want to create a student (1) or a teacher (2) ? [Input the number]: "
+      print 'Do you want to create a student (1) or a teacher (2) ? [Input the number]: '
       select_person = gets.chomp.to_i
-      if select_person == 1
+      case select_person
+      when 1
         @person_options.create_a_student
-      elsif select_person == 2
+      when 2
         @person_options.create_a_teacher
       end
     when 4
@@ -30,6 +33,8 @@ class App
       print 'Author: '
       author = gets.chomp
       @book_options.create_new_book(title, author)
+    when 5
+      @rental_options.create_a_rental
     else
       puts "\nYou have selected #{user_response}"
     end

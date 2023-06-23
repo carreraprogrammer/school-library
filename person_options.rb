@@ -2,6 +2,7 @@ require_relative 'student'
 require_relative 'teacher'
 
 class PersonOptions
+  attr_accessor :people
   def initialize
     @people = []
   end
