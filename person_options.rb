@@ -3,6 +3,7 @@ require_relative 'teacher'
 
 class PersonOptions
   attr_accessor :people
+
   def initialize
     @people = []
   end
@@ -23,13 +24,13 @@ class PersonOptions
   end
 
   def create_a_student
-    print "Classroom: "
+    print 'Classroom: '
     classroom = gets.chomp
-    print "Age: "
+    print 'Age: '
     age = gets.chomp
-    print "Name: "
+    print 'Name: '
     name = gets.chomp
-    print "Has parent permission? [Y/N]: "
+    print 'Has parent permission? [Y/N]: '
     parent_permission = gets.chomp
     student = Student.new(classroom, age, name, parent_permission: parent_permission)
     @people.push(student)
@@ -37,11 +38,11 @@ class PersonOptions
   end
 
   def create_a_teacher
-    print "Age: "
+    print 'Age: '
     age = gets.chomp
-    print "Name: "
+    print 'Name: '
     name = gets.chomp
-    print "Specialization: "
+    print 'Specialization: '
     specialization = gets.chomp
     teacher = Teacher.new(specialization, age, name)
     @people.push(teacher)
