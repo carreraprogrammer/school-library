@@ -16,7 +16,6 @@ class Options
     puts '5 - Create a rental'
     puts '6 - List all rentals for a given person id'
     puts "7 - Exit\n"
-    puts ""
     user_response = gets.chomp.to_i
     if user_response < 7
       @app.select_option(user_response)
@@ -24,10 +23,8 @@ class Options
       show_menu
     elsif user_response == 7
       puts "\n~~ Thanks for use school library app ~~\n"
-      sleep(1)
     else
       puts "\n~~ Please, insert a valid number ~~\n"
-      puts
       sleep(1)
       show_menu
     end
