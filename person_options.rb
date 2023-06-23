@@ -1,4 +1,5 @@
 require_relative 'student'
+require_relative 'teacher'
 
 class PersonOptions
   def initialize
@@ -31,6 +32,18 @@ class PersonOptions
     parent_permission = gets.chomp
     student = Student.new(classroom, age, name, parent_permission: parent_permission)
     @people.push(student)
-    puts "\nPerson created successfully ! "
+    puts "\nStudent created successfully ! "
+  end
+
+  def create_a_teacher
+    print "Age: "
+    age = gets.chomp
+    print "Name: "
+    name = gets.chomp
+    print "Specialization: "
+    specialization = gets.chomp
+    teacher = Teacher.new(specialization, age, name)
+    @people.push(teacher)
+    puts "\nProfesor created successfully !"
   end
 end

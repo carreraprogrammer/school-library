@@ -21,7 +21,7 @@ class App
       if select_person == 1
         @person_options.create_a_student
       elsif select_person == 2
-        puts "You are creating a teacher"
+        @person_options.create_a_teacher
       end
     when 4
       puts ''
