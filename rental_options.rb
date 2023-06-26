@@ -62,4 +62,3 @@ class RentalOptions
     puts 'Rental created successfully'
   end
 end
-

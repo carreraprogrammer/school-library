@@ -1,4 +1,4 @@
-require_relative 'options.rb'
+require_relative 'options'
 
 def main
   Options.new
