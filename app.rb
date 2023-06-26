@@ -25,7 +25,7 @@ class App
     when 6
       rental_by_id
     else
-      puts "\nYou have selected #{user_response}"
+      puts "Please add a valid number"
     end
   end
 
