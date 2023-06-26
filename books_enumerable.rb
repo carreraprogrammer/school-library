@@ -2,7 +2,7 @@ class BooksEnumerable
   def initialize(books)
     @books = books
   end
-  
+
   def enumerate_all_books
     counter_books = 0
     @books.books.each do |book|
@@ -11,4 +11,3 @@ class BooksEnumerable
     end
   end
 end
-  

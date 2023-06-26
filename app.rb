@@ -25,7 +25,7 @@ class App
     when 6
       rental_by_id
     else
-      puts "Please add a valid number"
+      puts 'Please add a valid number'
     end
   end
 
