@@ -1,6 +1,8 @@
 require_relative 'person_options'
 require_relative 'book_options'
 require_relative 'rental'
+require_relative 'people_enumerable'
+require_relative 'books_enumerable'
 
 class RentalOptions
   def initialize(books, people)
@@ -11,11 +13,11 @@ class RentalOptions
 
   def create_a_rental
     puts "\nPlease, select a book from the following list by number: "
-    list_all_books
+    BooksEnumerable.new(@books).enumerate_all_books
     selected_book = gets.chomp.to_i
 
     puts "\nSelect a person from the following list by number (not id)"
-    list_all_people
+    PeopleEnumerable.new(@people).enumerate_all_people
     selected_person = gets.chomp.to_i
 
     print 'Date(YYYY-MM-DD): '
@@ -34,28 +36,6 @@ class RentalOptions
 
   private
 
-  def list_all_books
-    counter_books = 0
-    @books.books.each do |book|
-      puts "#{counter_books}) Title: \"#{book.title}\", Author: #{book.author}"
-      counter_books += 1
-    end
-  end
-
-  def list_all_people
-    counter_people = 0
-    @people.people.each do |person|
-      if person.is_a?(Student)
-        puts "#{counter_people}) [Student] Name: #{person.name}, ID: #{person.id}, Age: #{person.age},
-        classroom: #{person.classroom}"
-      else
-        puts "#{counter_people}) [Teacher] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}"
-      end
-      counter_people += 1
-    end
-    end
-  end
-
   def create_rental(book_index, person_index, date)
     book = @books.books[book_index]
     person = @people.people[person_index]
@@ -63,4 +43,3 @@ class RentalOptions
     puts 'Rental created successfully'
   end
 end
-
