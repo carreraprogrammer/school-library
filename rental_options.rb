@@ -9,6 +9,15 @@ class RentalOptions
     @rentals = []
     @books = books
     @people = people
+    @rentals_objects = []
+  end
+
+  def rental_to_object(rental)
+    {
+      date: rental.date,
+      book: rental.book,
+      person: rental.person
+    }
   end
 
   def create_a_rental
@@ -40,6 +49,7 @@ class RentalOptions
     book = @books.books[book_index]
     person = @people.people[person_index]
     @rentals.push(Rental.new(date, book, person))
+    @rentals_objects.push(rental_to_object(Rental.new(date, book, person)))
     puts 'Rental created successfully'
   end
 end
