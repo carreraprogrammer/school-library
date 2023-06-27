@@ -22,9 +22,9 @@ class Options
       sleep(1)
       show_menu
     elsif user_response == 7
-      puts "\n~~ Thanks for use school library app ~~\n"
+      puts "\n~~ Thank you for using School Library App ~~\n"
     else
-      puts "\n~~ Please, insert a valid number ~~\n"
+      puts "\n~~ Please, Insert a valid number ~~\n"
       sleep(1)
       show_menu
     end
