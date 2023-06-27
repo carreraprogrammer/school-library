@@ -5,16 +5,14 @@ class BookOptions
 
   def initialize
     @books = []
-    @booksObjects = []
+    @books_objects = []
   end
 
-  def to_object
-    @books.each |book| do
-      {
-        :title => book.title,
-        :author => book.author
-      }.push(@booksObject)
-    end
+  def to_object(book)
+    {
+      title: book.title,
+      author: book.author
+    }
   end
 
   def list_all_books
@@ -29,6 +27,7 @@ class BookOptions
   def create_new_book(title, author)
     new_book = Book.new(title, author)
     @books.push(new_book)
+    @books_objects.push(to_object(new_book))
     puts 'Book created succesfully !'
   end
 end

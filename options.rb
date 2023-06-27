@@ -1,4 +1,5 @@
 require_relative 'app'
+require_relative 'book_options'
 
 class Options
   def initialize
