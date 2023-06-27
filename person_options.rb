@@ -2,7 +2,7 @@ require_relative 'student'
 require_relative 'teacher'
 
 class PersonOptions
-  attr_accessor :people
+  attr_accessor :people, :people_objects
 
   def initialize
     @people = []
@@ -21,8 +21,7 @@ class PersonOptions
     {
       name: student.name,
       age: student.age,
-      classroom: student.classroom,
-      parent_permission: student.parent_permission
+      classroom: student.classroom
     }
   end
 

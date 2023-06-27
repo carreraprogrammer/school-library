@@ -5,6 +5,8 @@ require_relative 'people_enumerable'
 require_relative 'books_enumerable'
 
 class RentalOptions
+  attr_accessor :rentals, :rentals_objects
+
   def initialize(books, people)
     @rentals = []
     @books = books
@@ -15,8 +17,9 @@ class RentalOptions
   def rental_to_object(rental)
     {
       date: rental.date,
-      book: rental.book,
-      person: rental.person
+      title: rental.book.title,
+      author: rental.book.author,
+      name: rental.person.name
     }
   end
 
@@ -48,8 +51,9 @@ class RentalOptions
   def create_rental(book_index, person_index, date)
     book = @books.books[book_index]
     person = @people.people[person_index]
-    @rentals.push(Rental.new(date, book, person))
-    @rentals_objects.push(rental_to_object(Rental.new(date, book, person)))
+    new_rental = Rental.new(date, book, person)
+    @rentals.push(new_rental)
+    @rentals_objects.push(rental_to_object(new_rental))
     puts 'Rental created successfully'
   end
 end

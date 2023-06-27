@@ -1,7 +1,7 @@
 require_relative 'book'
 
 class BookOptions
-  attr_accessor :books
+  attr_accessor :books, :books_objects
 
   def initialize
     @books = []

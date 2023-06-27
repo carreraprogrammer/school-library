@@ -1,6 +1,7 @@
 require_relative 'book_options'
 require_relative 'person_options'
 require_relative 'rental_options'
+require 'json'
 
 class App
   def initialize(options)
@@ -24,6 +25,14 @@ class App
       create_rental
     when 6
       rental_by_id
+    when 7
+      books_json = @book_options.books_objects.to_json
+      person_json = @person_options.people_objects.to_json
+      rentals_json = @rental_options.rentals_objects.to_json
+
+      File.open('db/books.json', 'w') { |file| file.write(books_json) }
+      File.open('db/people.json', 'w') { |file| file.write(person_json) }
+      File.open('db/rentals.json', 'w') { |file| file.write(rentals_json) }
     else
       puts 'Please add a valid number'
     end

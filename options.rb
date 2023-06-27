@@ -1,5 +1,4 @@
 require_relative 'app'
-require_relative 'book_options'
 
 class Options
   def initialize
@@ -23,6 +22,7 @@ class Options
       sleep(1)
       show_menu
     elsif user_response == 7
+      @app.select_option(user_response)
       puts "\n~~ Thank you for using School Library App ~~\n"
     else
       puts "\n~~ Please, Insert a valid number ~~\n"
