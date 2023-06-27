@@ -6,6 +6,24 @@ class PersonOptions
 
   def initialize
     @people = []
+    @people_objects = []
+  end
+
+  def teacher_to_object(teacher)
+    {
+      name: teacher.name,
+      age: teacher.age,
+      specialization: teacher.specialization
+    }
+  end
+
+  def student_to_object(student)
+    {
+      name: student.name,
+      age: student.age,
+      classroom: student.classroom,
+      parent_permission: student.parent_permission
+    }
   end
 
   def list_all_people
@@ -34,6 +52,7 @@ class PersonOptions
     parent_permission = gets.chomp
     student = Student.new(classroom, age, name, parent_permission: parent_permission)
     @people.push(student)
+    @people_objects.push(student_to_object(student))
     puts "\nStudent created successfully ! "
   end
 
@@ -46,6 +65,7 @@ class PersonOptions
     specialization = gets.chomp
     teacher = Teacher.new(specialization, age, name)
     @people.push(teacher)
+    @people_objects.push(teacher_to_object(teacher))
     puts "\nProfesor created successfully !"
   end
 end
