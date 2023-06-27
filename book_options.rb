@@ -5,6 +5,16 @@ class BookOptions
 
   def initialize
     @books = []
+    @booksObjects = []
+  end
+
+  def to_object
+    @books.each |book| do
+      {
+        :title => book.title,
+        :author => book.author
+      }.push(@booksObject)
+    end
   end
 
   def list_all_books
