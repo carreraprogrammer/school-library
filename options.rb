@@ -9,16 +9,16 @@ class Options
 
   def conditions(user_response)
     if user_response < 7
-        @app.select_option(user_response)
-        sleep(1)
-        show_menu
+      @app.select_option(user_response)
+      sleep(1)
+      show_menu
     elsif user_response == 7
-        @app.select_option(user_response)
-        puts "\n~~ Thank you for using School Library App ~~\n"
+      @app.select_option(user_response)
+      puts "\n~~ Thank you for using School Library App ~~\n"
     else
-        puts "\n~~ Please, Insert a valid number ~~\n"
-        sleep(1)
-        show_menu
+      puts "\n~~ Please, Insert a valid number ~~\n"
+      sleep(1)
+      show_menu
     end
   end
 
