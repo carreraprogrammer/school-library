@@ -1,0 +1,22 @@
+[
+  {
+    "date": "2023-02-02",
+    "title": "Lord of the rings",
+    "author": "J.R.R Tolkien",
+    "name": "Bubble",
+    "age": "2",
+    "id": 118,
+    "classroom": "Unicorns",
+    "parent_permission": "N"
+  },
+  {
+    "date": "2020-10-22",
+    "title": "Little, little frog...",
+    "author": "Nobody",
+    "name": "Yoyos",
+    "age": "29",
+    "id": 812,
+    "specialization": "Sleep standing up",
+    "parent_permission": "Y"
+  }
+]

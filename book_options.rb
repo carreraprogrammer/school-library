@@ -8,6 +8,13 @@ class BookOptions
     @books_objects = []
   end
 
+  def fill_books
+    @books_objects.each do |book|
+      new_book = Book.new(book['title'], book['author'])
+      @books.push(new_book)
+    end
+  end
+
   def to_object(book)
     {
       title: book.title,

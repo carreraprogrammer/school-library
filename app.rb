@@ -1,6 +1,7 @@
 require_relative 'book_options'
 require_relative 'person_options'
 require_relative 'rental_options'
+require_relative  'storage'
 require 'json'
 
 class App
@@ -9,15 +10,29 @@ class App
     @book_options = BookOptions.new
     @person_options = PersonOptions.new
     @rental_options = RentalOptions.new(@book_options, @person_options)
+    @storage = Storage.new('json', './db/')
+    @book_options.books_objects = @storage.load_data('books')
+    @person_options.people_objects = @storage.load_data('people')
+    @rental_options.rentals_objects = @storage.load_data('rentals')
+    if @person_options.people.empty?
+      @person_options.fill_people
+    end
+    if @book_options.books.empty?
+      @book_options.fill_books
+    end
+    if @rental_options.rentals.empty?
+      @rental_options.fill_rentals
+    end
   end
 
   def store_json_data()
-    books_json = @book_options.books_objects.to_json
-    person_json = @person_options.people_objects.to_json
-    rentals_json = @rental_options.rentals_objects.to_json
-    File.write('db/books.json', books_json)
-    File.write('db/people.json', person_json)
-    File.write('db/rentals.json', rentals_json)
+    books_objects = @book_options.books_objects
+    person_objects = @person_options.people_objects
+    rentals_objects = @rental_options.rentals_objects
+    
+    @storage.save_data('books', books_objects)
+    @storage.save_data('people', person_objects)
+    @storage.save_data('rentals', rentals_objects)
   end
 
   def check_cases_first(user_response)
