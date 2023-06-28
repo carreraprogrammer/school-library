@@ -12,10 +12,11 @@ class PersonOptions
   def fill_people
     @people_objects.each do |person|
       if person['type'] == 'student'
-        student = Student.new(person['classroom'], person['age'], person['name'], parent_permission: person['parent_permission'])
+        student = Student.new(person['classroom'], person['age'],
+                              person['name'], person['id'], parent_permission: person['parent_permission'])
         @people.push(student)
       else
-        teacher = Teacher.new(person['specialization'], person['age'], person['name'])
+        teacher = Teacher.new(person['specialization'], person['age'], person['name'], person['id'])
         @people.push(teacher)
       end
     end
@@ -26,14 +27,14 @@ class PersonOptions
       name: teacher.name,
       age: teacher.age,
       specialization: teacher.specialization,
-      parent_permission: "Y",
+      parent_permission: 'Y',
       type: 'teacher',
       id: teacher.id
     }
   end
 
   def student_to_object(student)
-    student_object ={
+    {
       name: student.name,
       age: student.age,
       classroom: student.classroom,
@@ -50,9 +51,11 @@ class PersonOptions
       puts "\nWe have #{@people.count} people to show you\n"
       @people.each do |person|
         if person.is_a?(Student)
-          puts "[Student] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}, Classroom: #{person.classroom}"
+          puts "[Student] Name: #{person.name}, ID: #{person.id}, Age: #{person.age},
+                Classroom: #{person.classroom}"
         else
-          puts "[Teacher] Name: #{person.name}, ID: #{person.id}, Age: #{person.age}, Specialization: #{person.specialization}"
+          puts "[Teacher] Name: #{person.name}, ID: #{person.id}, Age: #{person.age},
+          Specialization: #{person.specialization}"
         end
       end
     end

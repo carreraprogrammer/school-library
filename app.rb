@@ -1,7 +1,7 @@
 require_relative 'book_options'
 require_relative 'person_options'
 require_relative 'rental_options'
-require_relative  'storage'
+require_relative 'storage'
 require 'json'
 
 class App
@@ -14,22 +14,16 @@ class App
     @book_options.books_objects = @storage.load_data('books')
     @person_options.people_objects = @storage.load_data('people')
     @rental_options.rentals_objects = @storage.load_data('rentals')
-    if @person_options.people.empty?
-      @person_options.fill_people
-    end
-    if @book_options.books.empty?
-      @book_options.fill_books
-    end
-    if @rental_options.rentals.empty?
-      @rental_options.fill_rentals
-    end
+    @person_options.fill_people if @person_options.people.empty?
+    @book_options.fill_books if @book_options.books.empty?
+    @rental_options.fill_rentals if @rental_options.rentals.empty?
   end
 
   def store_json_data()
     books_objects = @book_options.books_objects
     person_objects = @person_options.people_objects
     rentals_objects = @rental_options.rentals_objects
-    
+
     @storage.save_data('books', books_objects)
     @storage.save_data('people', person_objects)
     @storage.save_data('rentals', rentals_objects)
