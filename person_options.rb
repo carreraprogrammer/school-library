@@ -17,7 +17,7 @@ class PersonOptions
       ID: teacher.id
     }
   end
-  
+
   def student_to_object(student)
     {
       name: student.name,

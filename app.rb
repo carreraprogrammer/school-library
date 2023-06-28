@@ -30,9 +30,9 @@ class App
       person_json = @person_options.people_objects.to_json
       rentals_json = @rental_options.rentals_objects.to_json
 
-      File.open('db/books.json', 'w') { |file| file.write(books_json) }
-      File.open('db/people.json', 'w') { |file| file.write(person_json) }
-      File.open('db/rentals.json', 'w') { |file| file.write(rentals_json) }
+      File.write('db/books.json', books_json)
+      File.write('db/people.json', person_json)
+      File.write('db/rentals.json', rentals_json)
     else
       puts 'Please add a valid number'
     end
