@@ -3,12 +3,51 @@ require_relative 'book_options'
 require_relative 'rental'
 require_relative 'people_enumerable'
 require_relative 'books_enumerable'
+require_relative 'student'
 
 class RentalOptions
+  attr_accessor :rentals, :rentals_objects
+
   def initialize(books, people)
     @rentals = []
     @books = books
     @people = people
+    @rentals_objects = []
+  end
+
+  def fill_rentals
+    @rentals_objects.each do |rental|
+      book = Book.new(rental['title'], rental['author'])
+      person = if rental['type'] == 'student'
+                 Student.new(rental['classroom'], rental['age'], rental['name'], rental['id'],
+                             parent_permission: rental['parent_permission'])
+               else
+                 Teacher.new(rental['specialization'], rental['age'], rental['name'], rental['id'])
+               end
+      new_rental = Rental.new(rental['date'], book, person)
+      @rentals.push(new_rental)
+    end
+  end
+
+  def rental_to_object(rental)
+    rental_object = {
+      date: rental.date,
+      title: rental.book.title,
+      author: rental.book.author,
+      name: rental.person.name,
+      age: rental.person.age,
+      id: rental.person.id
+    }
+
+    if rental.person.is_a?(Student)
+      rental_object['classroom'] = rental.person.classroom
+      rental_object['parent_permission'] = rental.person.parent_permission
+    else
+      rental_object['specialization'] = rental.person.specialization
+      rental_object['parent_permission'] = 'Y'
+    end
+
+    rental_object
   end
 
   def create_a_rental
@@ -39,7 +78,9 @@ class RentalOptions
   def create_rental(book_index, person_index, date)
     book = @books.books[book_index]
     person = @people.people[person_index]
-    @rentals.push(Rental.new(date, book, person))
+    new_rental = Rental.new(date, book, person)
+    @rentals.push(new_rental)
+    @rentals_objects.push(rental_to_object(new_rental))
     puts 'Rental created successfully'
   end
 end

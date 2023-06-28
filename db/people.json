@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Bubble",
+    "age": "2",
+    "classroom": "Unicorns",
+    "parent_permission": "N",
+    "type": "student",
+    "id": 118
+  },
+  {
+    "name": "Yoyos",
+    "age": "29",
+    "specialization": "Sleep standing up",
+    "parent_permission": "Y",
+    "type": "teacher",
+    "id": 812
+  },
+  {
+    "name": "Pam",
+    "age": "23",
+    "specialization": "UX/UI",
+    "parent_permission": "Y",
+    "type": "teacher",
+    "id": 586
+  }
+]
