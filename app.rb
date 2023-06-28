@@ -11,6 +11,15 @@ class App
     @rental_options = RentalOptions.new(@book_options, @person_options)
   end
 
+  def store_json_data()
+      books_json = @book_options.books_objects.to_json
+      person_json = @person_options.people_objects.to_json
+      rentals_json = @rental_options.rentals_objects.to_json
+      File.write('db/books.json', books_json)
+      File.write('db/people.json', person_json)
+      File.write('db/rentals.json', rentals_json)
+  end
+
   def select_option(user_response)
     case user_response
     when 1
@@ -26,13 +35,7 @@ class App
     when 6
       rental_by_id
     when 7
-      books_json = @book_options.books_objects.to_json
-      person_json = @person_options.people_objects.to_json
-      rentals_json = @rental_options.rentals_objects.to_json
-
-      File.write('db/books.json', books_json)
-      File.write('db/people.json', person_json)
-      File.write('db/rentals.json', rentals_json)
+      store_json_data
     else
       puts 'Please add a valid number'
     end
