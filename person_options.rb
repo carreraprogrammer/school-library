@@ -13,15 +13,17 @@ class PersonOptions
     {
       name: teacher.name,
       age: teacher.age,
-      specialization: teacher.specialization
+      specialization: teacher.specialization,
+      ID: teacher.id
     }
   end
-
+  
   def student_to_object(student)
     {
       name: student.name,
       age: student.age,
-      classroom: student.classroom
+      classroom: student.classroom,
+      ID: student.id
     }
   end
 
