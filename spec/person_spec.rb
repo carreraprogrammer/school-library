@@ -45,11 +45,6 @@ describe Person do
       person.age = 18
       expect(person.age).to eq 18
     end
-
-    it 'change the parent_permission correctly' do
-      person.parent_permission = false
-      expect(person.parent_permission).to eq false
-    end
   end
 
   context 'When person is under age but have parent permission' do

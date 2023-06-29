@@ -38,4 +38,21 @@ describe 'Student' do
       expect(classroom.students).to include(student)
     end
   end
+
+  context 'When student information is changed' do
+    it 'updates the name' do
+      student.name = 'Jane Doe'
+      expect(student.name).to eq 'Jane Doe'
+    end
+
+    it 'updates the age' do
+      student.age = 18
+      expect(student.age).to eq 18
+    end
+
+    it 'updates the parent permission' do
+      student.parent_permission = false
+      expect(student.parent_permission).to eq false
+    end
+  end
 end
