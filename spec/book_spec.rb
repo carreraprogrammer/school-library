@@ -35,12 +35,12 @@ describe Book do
   end
 
   context 'setters' do
-    it 'sets the title correctly' do
+    it 'change the title correctly' do
       book.title = 'New Title'
       expect(book.title).to eq 'New Title'
     end
 
-    it 'sets the author correctly' do
+    it 'change the author correctly' do
       book.author = 'New Author'
       expect(book.author).to eq 'New Author'
     end
