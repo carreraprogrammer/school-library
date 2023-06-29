@@ -23,22 +23,24 @@ describe Rental do
 
   context 'When book is not an instance of Book class' do
     it 'raises an error' do
-      expect { Rental.new('2021-01-01', 'The Lord of the Rings', person) }.to raise_error('Book should be an instance of Book class')
+      error = 'Book should be an instance of Book class'
+      expect { Rental.new('2021-01-01', 'The Lord of the Rings', person) }.to raise_error(error)
     end
   end
 
-  context "When book already was rented in that date" do
+  context 'When book already was rented in that date' do
     it 'raises an error' do
-        rental2 = Rental.new('2021-01-01', book, person)
-        expect { Rental.new('2021-01-01', book, person) }.to raise_error('The book already was rented in that date')
-      end
+      Rental.new('2021-01-01', book, person)
+      error = 'The book already was rented in that date'
+      expect { Rental.new('2021-01-01', book, person) }.to raise_error(error)
+    end
   end
 
-  context "When person is not an instance of Person class" do
+  context 'When person is not an instance of Person class' do
     it 'raises an error' do
       invalid_person = 'John Doe'
-      expect { Rental.new('2021-01-01', book, invalid_person) }.to raise_error('Person should be an instance of Person class')
+      error = 'Person should be an instance of Person class'
+      expect { Rental.new('2021-01-01', book, invalid_person) }.to raise_error(error)
     end
   end
-
 end

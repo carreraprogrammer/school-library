@@ -9,7 +9,7 @@ describe Classroom do
     it 'sets the label correctly' do
       expect(classroom.label).to eq 'foo'
     end
-    
+
     it 'initializes students as an empty array' do
       expect(classroom.students).to be_empty
     end
