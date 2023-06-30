@@ -4,7 +4,8 @@ require_relative 'trimmer_decorator'
 require_relative 'rental'
 
 class Person < Nameable
-  attr_accessor :name, :age, :rentals, :parent_permission, :id
+  attr_accessor :name, :age, :rentals, :id
+  attr_reader :parent_permission
 
   def initialize(age, name, id, parent_permission: true)
     super()
