@@ -1,4 +1,4 @@
-require_relative '../decorator.rb'
+require_relative '../decorator'
 
 RSpec.describe Decorator do
   let(:nameable) { double('Nameable') }
